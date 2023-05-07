@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="description" content="This is where your description goes">
+    	<meta name="keywords" content="one, two, three">
+
+		<title>Weather!</title>
+
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/style.css">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<% forecastDays.forEach(day => { %>
+			<div class="weather-day">
+			  <h3><%= day.date %></h3>
+			  <img src="<%= 'http:' + day.day.condition.icon %>" alt="<%= day.day.condition.text %>">
+			  <p>Condition: <%= day.day.condition.text %></p>
+			  <p>Max Temp: <%= day.day.maxtemp_c %>°C</p>
+			  <p>Min Temp: <%= day.day.mintemp_c %>°C</p>
+			</div>	
+		  <% }) %>
+		  
+	
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>

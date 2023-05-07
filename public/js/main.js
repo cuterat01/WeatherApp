@@ -1,0 +1,29 @@
+document.querySelector('.submit').addEventListener('click', getWeather);
+
+function getWeather() {
+  const cityName = document.getElementById('cityName').value;
+  let url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${cityName}&days=3&aqi=no&alerts=no`;
+
+
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      const forecastDays = data.forecast.forecastday;
+      // Send the forecast data to the server
+      fetch('/weather', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ forecastDays }),
+      })
+        .then((res) => res.text())
+        .then((html) => {
+          // Display the rendered EJS template
+          document.getElementById('weather-info').innerHTML = html;
+        });
+    })
+    .catch((err) => {
+      console.log(`error ${err}`);
+    });
+}
