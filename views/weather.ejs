@@ -16,15 +16,17 @@
 		<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
 	</head>
 	<body>
+		<div class="weather-container">
 		<% forecastDays.forEach(day => { %>
 			<div class="weather-day">
 			  <h3><%= day.date %></h3>
+			  <p><%= day.day.condition.text %></p>
 			  <img src="<%= 'http:' + day.day.condition.icon %>" alt="<%= day.day.condition.text %>">
-			  <p>Condition: <%= day.day.condition.text %></p>
-			  <p>Max Temp: <%= day.day.maxtemp_c %>°C</p>
-			  <p>Min Temp: <%= day.day.mintemp_c %>°C</p>
+			  <p>Max Temp: <%= day.day.maxtemp_f %>°F</p>
+			  <p>Min Temp: <%= day.day.mintemp_f %>°F</p>
 			</div>	
 		  <% }) %>
+		</div>
 		  
 	
 		<script type="text/javascript" src="js/main.js"></script>

@@ -9,6 +9,7 @@ function getWeather() {
     .then((res) => res.json())
     .then((data) => {
       const forecastDays = data.forecast.forecastday;
+      //console.log(forecastDays)
       // Send the forecast data to the server
       fetch('/weather', {
         method: 'POST',
@@ -21,6 +22,7 @@ function getWeather() {
         .then((html) => {
           // Display the rendered EJS template
           document.getElementById('weather-info').innerHTML = html;
+          document.querySelector('h2').innerText = `${data.location.name}, ${data.location.country}`
         });
     })
     .catch((err) => {

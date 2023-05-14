@@ -11,13 +11,23 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Dancing+Script:wght@400;600&family=Roboto+Serif:ital@1&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Weather App</h1>
-  <input type="text" id="cityName" placeholder="Enter city name">
-  <button class="submit">Submit</button>
-  <div id="weather-info"></div>
+    <header>
+        <h1>Weather!</h1> 
+    </header>
+    <div class="submitPlace">
+      <span>Enter City, State, or Region</span>
+      <input type="text" id="cityName" placeholder="Enter Location">
+      <button class="submit">Submit</button>
+    </div>
+    <h2></h2>
+    <div id="weather-info"></div>
+
+    <footer>
+      <h3>Check out the <a href="https://www.weatherapi.com/">API</a> used to make this app!</h3>
+    </footer>
 
   <script>
     const apiKey = '<%= apiKey %>';
