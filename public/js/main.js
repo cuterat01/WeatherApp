@@ -2,13 +2,10 @@ document.querySelector('.submit').addEventListener('click', getWeather);
 
 function getWeather() {
   const cityName = document.getElementById('cityName').value;
-  //let url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${cityName}&days=3&aqi=no&alerts=no`;
-
-  var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
-      targetUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${cityName}&days=3&aqi=no&alerts=no`;
+  let url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${cityName}&days=3&aqi=no&alerts=no`;
 
 
-  fetch(proxyUrl + targetUrl)
+  fetch(url)
     .then((res) => res.json())
     .then((data) => {
       const forecastDays = data.forecast.forecastday;
