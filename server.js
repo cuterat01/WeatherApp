@@ -37,6 +37,10 @@ app.use((req, res, next) => {
 });
 
 app.get('/forecast', (req, res) => {
+  const apiKey = process.env.API_KEY; // Retrieve the API key from the environment variables
+  const cityName = req.query.cityName;
+
+  
   request(
     { url: `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${cityName}&days=3&aqi=no&alerts=no` },
     (error, response, body) => {

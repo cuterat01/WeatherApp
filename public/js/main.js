@@ -1,7 +1,7 @@
 document.querySelector('.submit').addEventListener('click', getWeather);
 
 function getWeather() {
-  const cityName = document.getElementById('cityName').value;
+  //const cityName = document.getElementById('cityName').value;
   //let url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${cityName}&days=3&aqi=no&alerts=no`;
 
 
